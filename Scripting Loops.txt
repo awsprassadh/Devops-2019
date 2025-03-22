@@ -1,0 +1,129 @@
+Topics 3
+
+"Welcome to Shell Scripting Lectures"
+if you want to print a message for multiple times, we will use 'Loop' concept
+
+What is a loop?
+Loops are used to execute the same statement multiple times
+Used to repeat a set of commands until a condition is satisfied
+
+Types of Loops;
+1. Range based loop - if you already know how many times you want to execute a statement then we will use 'Range based loop'
+						Ex: for
+2. Conditional based loop - if you dont know the range and you want to execute a statement until the condition the is true then we will use 'Conditional based loop'
+						Ex: while
+
+FOR Loop
+------------------
+Syntax
+
+for (( initialization; condition; modification ))
+	do
+		<Statements>
+done
+vi numbers.sh------------
+
+#! /bin/bash
+for(( k=1; k<=15; k++ ))
+   do
+   echo $k
+   done
+ 
+ vi numbersr.sh-----------
+ 
+ #! /bin/bash
+ for((k=15; k>=1; k--))
+ do
+ echo $k
+ done
+ 
+ particular file will be iddentified in this way===========
+ 
+ #! /bin/bash
+for file in *.txt; do
+        echo "Text file name: $file"
+done
+
+Total all files findout dcript is....
+
+#! /bin/bash
+for file name in *; do
+        echo "Text file name: $file name"
+
+done
+
+
+
+
+
+WHILE Loop
+---------------------------
+while loop is used to execute until the condition is true
+
+Syntax
+
+while [ condition ]
+do
+	<Statements>
+done
+
+ vi while.sh----------------------------------
+#! /bin/bash
+# Ask for a password until the correct password is entered
+
+  password="secret"
+  user_input=""
+  
+  while [ "$user_input" != "$password" ]
+  do 
+       echo "Enter correct Password;"
+	   read user_input
+  done
+  echo "Acess Granted!!"  
+
+vi while1.sh--------------------- if we come out of loop (ctrl=c)
+ want to print the values from 1-15
+ using while loop
+ 
+#!/bin/bash
+K=1
+while [ $K -le 15 ]
+do 
+    echo $K
+done
+
+then we can execute we got 1111111111111 upto 15 digits only ones bcz we cant specify arthematic expression 
+
+#!/bin/bash
+K=1
+while [ $K -le 15 ]
+do 
+    echo $K
+	let K++ (conditon clarity unlike above exercise)
+done
+
+vi while2.sh-----------
+count down timer
+
+#!/bin/base
+#Countdown Loop File
+
+counter=5
+while [ $counter -ge 1 ]; do
+       echo "Countdown: $counter"
+	   counter=$((counter - 1))
+	   sleep 2
+done
+echo "Bomb is Blasted"
+
+
+
+
+
+
+Assignment:
+Task 1: For loop: Create a directory and Write a shell script file to print all the .py, .java and .txt files available in custom directory path
+Task 2: For loop: Write a shell file to Print Even Numbers from 2 to 20
+Task 3: While loop: Write a shell file to Monitor CPU Usage in Real-Time
+
+   

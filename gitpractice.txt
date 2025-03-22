@@ -1,0 +1,35 @@
+git----------Global Information Tracker
+
+Need before Git
+no audit tracking
+no previous verion avialbility
+ Git
+ 1 Distributed
+ 2 performant
+ 3 Detailed audit tracking
+ 4 open source
+ 5 Integrated with jenkins k8s aws code pipeline etc
+ 6 GitHub GitLab, AWS code commit are built on top of Git
+ 7 Git and GitHub nboyh r different 
+ 8 Git is technology 
+ 9 Repository hosting for public platform based on git 
+ 
+
+ Git              ------------------------------- -----------GitHub
+ 1 Version control System                      1 GitHub repository hosting services with other features      
+ 2 Installed locally on the system             2 Runs on cloud
+ 3 created in 2005 by linus Torvalds           3 created in 2008 currently owned by Microsoft
+ 4 Open Source and used in multiple cloud      4 Not open source , it has free and paid tiers are available 
+   repository services               
+ 
+Different ways to use git=============================
+1 CLI 
+2 GUI
+3 Devops tools likes jenkins
+4 In code editors like visual studio code
+ commands
+ git add  git add file1 file2 file3 or git add -a or git add .
+
+ git commit -m""
+ git push
+ 

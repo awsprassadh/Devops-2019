@@ -1,0 +1,267 @@
+ 1 SCRITPING PRACTICE==========================rm -rf *  for delete all
+
+         EXERCISE 1   WELCOME MESSAGE 
+	#!/bin/bash
+	echo "Enter Your Name"
+	read user Name
+	echo "Hello $user, Welcome to Shell Scripting Course by Kastro"
+	
+	     EXERCISE 2 lINUX COOMANDS
+	
+	#!bin/bash
+	echo "Executing Linux Commands"
+	whoami
+	pwd
+	date
+	cal 2025
+	mkdir yassu
+	touch kiran.txt
+	
+	    EXERCISE 3 SYSTEM DETIALS system.sh
+
+	#!/bin/bash
+    echo "Disaplay System Basic Information"
+    echo "current user :$(whoami)"
+    echo "current Directory : $(pwd)"
+    echo "today's Date : $(date)"
+    echo "calender : $(cal 2025)"
+======>By default shell file doesnt have executable permissions
+ =====>In a shell read something we can denote $symbole before that
+== if we want to delete everything created in shell then command is  
+==  rm -rf * 
+if anything want to print used command in shell scripting is echo
+
+2 CORE CONCEPTS===============================
+    1 VARIABLES
+    2 STATEMENTS
+    3 OPERATORS
+    4 COMMAND LINE ARGUMENTS
+    5 FUNCTIONS
+
+  1 VARIABLES-------------Variable is used to store data in key value format.
+     name = prassadh
+      key     value   like that some other examples are given below
+     age = 35
+     gender = male
+ ---- they act as place holders for v alues trhat can be used throughut the script.
+ ----variables doesnt require explict data type declarations
+-----variables can store any type of value
+======accessing any variable use symbole is $before that
+ -----ex $name 
+ =====> export course=ShellScripting
+                 key    value
+    acessing variable example is==== echo $course
+
+ -----------Types of Variables--------------------
+
+1 System(Environment) Varibles : Predefined by the System 
+         ex $USER 
+            $HOME $PATH
+
+2 User Defined Variables: thes variables are created by the user depends on requiremnt
+      again these are two types
+       1 Temporary Variables(using 'export' in syntax)  these Variables are not accesed once Terminal close and assigned value also lost
+    
+    those r stored in checking syntax is-----cat -n .bashrc
+
+ 2 Permanent Variables: means if we lost the connection of terminal values  will be accessed.
+    --- how to make a variable as a permanent ----vi .bashrc------ then make  changes in before the unset 
+  after tha made changes have to use syntax is ---source .bashrc---
+then acces the changed variable through cat -n .bashrc----
+      
+if we dont want permanant variable what we assigned then syntax is---unset variablename
+
+ponts to be remembered=================
+
+1) Variable cant start with any digit like 123 142anand like 
+
+2) cant contain 3 special characters(- @ #)
+
+3) use 	uppeer case for System Variables(Environment)
+ 
+        Lower case for User Defined Variables  it is just recommended only not mandatory
+
+       
+========2 OPERATORS=====================
+
+Operator  is used to perform amy task execution we have different types of operators
+
+  2.1 Arithmetic Operators : To perform mathematical operations
+              (+ - * / %)
+ syntax ====== $(())
+
+vi addition.sh------------
+
+#!/bin/bash
+
+num1=500
+num2=600
+
+SUM=$((num1+num2))
+echo "the result is $SUM"
+ 
+vi difference.sh=======
+
+#!/bin/bash
+
+num1=250
+num2=200
+
+DIFF=$((num1-num2))
+
+echo "The result is $DIFF"
+
+vi add.sh===========
+
+#!/bin/bash
+
+echo "Enter num1"
+read num1
+
+echo "Enter num2"
+read num2
+
+echo "Enter num3"
+read num3
+
+echo "The sum is $((num1+num2+num3))":
+
+vi multiple.sh
+
+#!/bin/bash
+echo "Enter Two Numbers"
+read num1
+read num2
+
+#Multiple Operations
+
+sum=$((num1+num))
+diff=$((num1-num2))
+product=$((num1*num2))
+division=$((num1/num2))
+
+  #Display the results
+echo "sum is $sum"
+echo "difference is $diff"
+echo "product is $product"
+echo "dividion is $division"
+
+======2.2 Relational or Comparison Operators : To compare two Values It is used to compare values in conditional statements..
+
+
+Equal to              : == or eq
+Not equal to          :!=
+Greater than          :> or gt
+Greater than or equal :>= or ge
+Less than             :< or lt
+Less than or equal    :<= or le 
+
+vi comparison.sh
+
+i want to compare two numners----- if elif else fi-------------
+#! bin/bash
+echo "Enter two numbers"
+read num1
+read num2
+ Syntax: 
+     if [ condition ]; then
+        #Statements
+    elif [condition ]; then 
+        #Statements
+    else [ condition ]; then
+        #Statements
+     fi
+
+eg-------------
+
+#! bin/bash
+echo "Enter two numbers"
+read num1
+read num2
+ Syntax: 
+     if [ $num1 == $num2 ]; then
+        echo "$num1 is equal to num2"
+    elif [ $num1 > $num2 ]; then 
+        echo "$num1 is greater than $num2"
+    else 
+        echo "$num1 is less than $num2"
+     fi
+
+
+eg compare.sh
+
+#! bin/bash
+echo "Enter two numbers"
+read num1
+read num2
+# Syntax:
+     if [ $num1 -eq $num2 ]; then
+        echo "$num1 is equal to $num2"
+    elif [ $num1 -gt $num2 ]; then
+        echo "$num1 is greater than $num2"
+    else
+        echo "$num1 is less than $num2"
+     fi
+
+=========3 Conditional (Statements)
+              These are used execute commands based on commands
+ 
+vi password.sh using (condition)
+
+#! /bin/bash
+#To check password length
+#Weak: lessthan 8 charas
+#Moderate:8-12 chars
+#Strong: greaterthan 12 chars
+
+echo "Enter Your password"
+read password
+length=${#password}
+
+the space between brackets r must
+
+if [ $length -lt 8 ]; then
+     echo :" Yopur Pawssord is Weak - Lessthan 8 chars"
+elif [ $length -ge 8 ] && [ $length -le 12 ]; then
+     echo "Your Password is Moderate - Between 8-12 chars"
+else 
+     echo " Your password is Strong  - Morethan 12 chars"
+fi
+
+====grade calculation====
+vi grade.sh
+
+A - 90-100
+B - 80-89
+C - 70-79
+D - 60-69
+E - Below 60
+
+#! /bin/bash
+echo "Enter Your Score (0-100);"
+read score
+ 
+if [ $score -ge 90 ] && [ $score -le 100 ]; then
+   echo "Your Grade is A"
+elif [ $score -ge 80 ] && [ $score -lt 90 ]; then
+    echo "Your Grade is B"
+elif [ $score -ge 70 ] && [ $score -lt 80 ]; then
+    echo "Your Grade is C"
+elif [ $score -ge 60 ] && [ $score -lt 70 ]; then
+    echo "Your Grade is D"
+else 
+
+     echo "Your Grade is E"
+fi
+
+
+
+
+
+
+
+
+
+
+
+
