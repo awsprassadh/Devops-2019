@@ -1,0 +1,6 @@
+Hello from my git practice
+git log
+git commit -m "message"
+git branch -M main
+git remote add origin https://github.com/awsprassadh/Devops-2019.git
+git push -u origin main
